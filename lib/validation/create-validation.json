@@ -1,0 +1,48 @@
+{
+    "title": "order",
+    "type": "object",
+    "description": "describes properties required to create/update a order",
+    "properties": {
+        "tenantId": {
+            "type": "string",
+            "title": "The Tenantid Schema"
+        },
+        "userId": {
+            "type": "string",
+            "title": "The Userid Schema"
+        },
+        "portalId": {
+            "type": "string",
+            "title": "The Portalid Schema"
+        },
+        "customerId": {
+            "type": "string",
+            "title": "The Customerid Schema"
+        },
+        "type": {
+            "type": "string",
+            "title": "The Type Schema"
+        },
+        "category": {
+            "type": "string",
+            "title": "The Category Schema"
+        },
+        "keywords": {
+            "type": "string",
+            "title": "The Keywords Schema"
+        },
+        "status": {
+            "type": "string",
+            "title": "The Status Schema"
+        },
+        "sysState": {
+            "type": "string",
+            "title": "The Sysstate Schema"
+        },
+        "createdBy": {
+            "type": "string",
+            "title": "The CreatedBy Schema"
+        }
+    },
+    "required": ["tenantId", "userId", "createdBy"]
+}

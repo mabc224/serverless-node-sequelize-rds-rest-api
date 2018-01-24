@@ -1,0 +1,73 @@
+service: order-rest-api
+
+package:
+  exclude:
+    - lib/**
+    - data-local
+    - node_modeules
+  include:
+    - dist
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  region: us-west-2
+  timeout: 20
+  versionFunctions: false
+  memorySize: 512
+  environment:
+    NODE_ENV: production
+
+functions:
+
+  create:
+    handler: dist/create.create
+    events:
+      - http:
+          path: v1/orders
+          method: post
+
+  list:
+    handler: dist/list.list
+    events:
+      - http:
+          path: v1/orders
+          method: get
+          request:
+            parameters:
+              querystrings:
+                limit: false
+                offset: false
+
+  get:
+    handler: dist/get.get
+    events:
+      - http:
+          path: v1/orders/{id}
+          method: get
+          request:
+            parameters:
+              paths:
+                id: true
+
+  update:
+    handler: dist/update.update
+    events:
+      - http:
+          path: v1/orders/{id}
+          method: put
+          request:
+            parameters:
+              paths:
+                id: true      
+
+  delete:
+    handler: dist/delete.delete
+    events:
+      - http:
+          path: v1/orders/{id}
+          method: delete
+          request:
+            parameters:
+              paths:
+                id: true
